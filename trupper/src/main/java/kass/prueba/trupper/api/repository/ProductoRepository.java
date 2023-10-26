@@ -40,11 +40,11 @@ public class ProductoRepository {
 	}
 	
 	public void save(Producto p) {
-		jdbc.update("INSERT INTO PRODUCTOS (idProducto,clave,descripcion,activo) VALUES("
-					+ "idProducto = '" + p.getIdProducto() + "',"
-					+ "clave = '" + p.getClave() + "',"
-					+ "descripcion = '" + p.getDescripcion() + "',"
-					+ "activo = '" + p.getActivo() + "');"
+		jdbc.update("INSERT INTO PRODUCTOS VALUES("
+					+ "" + p.getIdProducto() + ","
+					+ "'" + p.getClave() + "',"
+					+ "'" + p.getDescripcion() + "',"
+					+ "" + p.getActivo() + ");"
 				);
 	}
 }

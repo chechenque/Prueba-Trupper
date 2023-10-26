@@ -55,10 +55,10 @@ public class ClienteRepository {
 	}
 	
 	public void save(Cliente c) {
-		jdbc.update("INSERT INTO CLIENTES (idCliente,nombre,activo) VALUES("
-				+ "idCliente = '" + c.getIdCliente() + "',"
-				+ "nombre = '" + c.getNombre() + "',"
-				+ "activo = '" + c.getActivo() + "');"
+		jdbc.update("INSERT INTO CLIENTES VALUES("
+				+ "" + c.getIdCliente() + ","
+				+ "'" + c.getNombre() + "',"
+				+ "" + c.getActivo() + ");"
 			);
 	}
 

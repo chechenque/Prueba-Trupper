@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class Producto {
 	
 	@Id
-	@Column(name = "idProducto")
+	@Column(name = "IDPRODUCTO")
 	@JsonProperty("id_producto")
 	@NotNull
 	private Integer idProducto;
