@@ -14,23 +14,19 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name = "Productos")
-//@Entity
-public class Producto {
+@Table(name = "Clientes")
+public class Cliente {
 	
 	@Id
-	@Column(name = "idProducto")
-	@JsonProperty("id_producto")
+	@Column(name = "idCliente")
+	@JsonProperty("id_cliente")
 	@NotNull
-	private Integer idProducto;
+	private Integer idCliente;
 	
-	@Column(name = "clave")
-	@JsonProperty("clave")
-	private String clave;
-	
-	@Column(name = "descripcion")
-	@JsonProperty("descripcion")
-	private String descripcion;
+	@Column(name = "nombre")
+	@JsonProperty("nombre")
+	@NotNull
+	private String nombre;
 	
 	@Column(name = "activo")
 	@JsonProperty("activo")
