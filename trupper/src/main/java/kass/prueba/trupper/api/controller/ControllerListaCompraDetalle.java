@@ -2,12 +2,13 @@ package kass.prueba.trupper.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.origin.SystemEnvironmentOrigin;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,20 +30,19 @@ public class ControllerListaCompraDetalle {
 	
 	@GetMapping("/{idLista}/{codigo}")
 	public ResponseEntity<ListaCompraDetalle> getLista(
-			@Param("idLista") Integer idLista, @Param("codigo") Integer codigo) {
+			@PathVariable("idLista") Integer idLista, @PathVariable("codigo") Integer codigo) {
 		return new ResponseEntity<>(service.getLista(idLista, codigo),HttpStatus.OK);
 	}
 	
 	@PutMapping("/{idLista}/{codigo}")
 	public ResponseEntity<HttpStatus> updateCantidad(
-			@Param("idLista") Integer idLista, @Param("codigo") Integer codigo, @RequestBody Integer cantidad){
+			@PathVariable("idLista") Integer idLista, @PathVariable("codigo") Integer codigo, @RequestBody Integer cantidad){
 		service.updateCantidad(idLista, idLista, cantidad);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@PostMapping
-	public ResponseEntity<HttpStatus> createLista(ListaCompraDetalle l){
-		System.out.println("HOLAAAAAA"+l.getIdListaCompra());
+	public ResponseEntity<HttpStatus> createLista(@Valid @RequestBody ListaCompraDetalle l){
 		service.createList(l);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

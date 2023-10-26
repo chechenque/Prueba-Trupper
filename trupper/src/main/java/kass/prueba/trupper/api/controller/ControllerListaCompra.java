@@ -5,11 +5,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +31,7 @@ public class ControllerListaCompra {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<ListaCompra> getLista(@Param("id") Integer id){
+	public ResponseEntity<ListaCompra> getLista(@PathVariable("id") Integer id){
 		return new ResponseEntity<>(service.getLista(id),HttpStatus.OK);
 	}
 	
@@ -42,7 +42,7 @@ public class ControllerListaCompra {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<HttpStatus> deleteMapping(@Param("id") Integer id){
+	public ResponseEntity<HttpStatus> deleteMapping(@PathVariable("id") Integer id){
 		service.delete(id);
 		return new ResponseEntity<>(HttpStatus.OK); 
 	}

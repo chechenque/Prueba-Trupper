@@ -1,8 +1,8 @@
 package kass.prueba.trupper.api.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,12 +16,12 @@ import lombok.RequiredArgsConstructor;
 @Table(name = "LISTACOMPRADETALLE")
 public class ListaCompraDetalle {
 	
-	@Id
+	@NotNull
 	@Column(name = "idListaCompra")
 	@JsonProperty("id_lista_compra")
 	private Integer idListaCompra;
 	
-	@Id
+	@NotNull
 	@Column(name = "idCodigoProducto")
 	@JsonProperty("id_codigo_producto")
 	private Integer idCodigoProducto;
